@@ -1,3 +1,0 @@
-Line 1: Hello, World!
-Line 2: Testing sys_io component
-Line 3: File reading functionality

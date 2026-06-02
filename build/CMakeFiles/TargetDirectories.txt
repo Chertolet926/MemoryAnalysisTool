@@ -1,5 +1,0 @@
-/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool.dir
-/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/edit_cache.dir
-/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/rebuild_cache.dir
-/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool_autogen_timestamp_deps.dir
-/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool_autogen.dir

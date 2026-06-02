@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_MemoryAnalysisTool_FILE /home/gleb/Projects/save/MemoryAnalysisTool/build/MemoryAnalysisTool)
-set(__QT_DEPLOY_TARGET_MemoryAnalysisTool_TYPE EXECUTABLE)
