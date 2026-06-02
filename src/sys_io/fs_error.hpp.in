@@ -5,22 +5,25 @@
 #include <cerrno>
 
 namespace sys_io {
+    // Strongly-typed I/O error codes mapped directly to standard POSIX errno equivalents.
     enum class fs_errc {
-        success = 0,
-        not_found = ENOTDIR,
-        denied = EACCES,
-        limit_reached = EMFILE,
-        read_failed = EIO,
-        over_limit = EFBIG,
-        invalid =  EINVAL
+        success = 0,            // <-- No error occurred
+        not_found = ENOTDIR,    // <-- Path is not a directory or target missing
+        denied = EACCES,        // <-- Permission denied
+        limit_reached = EMFILE, // <-- Per-process file descriptor limit reached
+        read_failed = EIO,      // <-- Physical low-level I/O read failure
+        over_limit = EFBIG,     // <-- Target file size or constraint limit exceeded
+        invalid =  EINVAL       // <-- Invalid argument or malformed context
     };
 
+    // @brief Additional runtime context bundled with filesystem errors to improve diagnostic visibility.
     struct fs_error_info {
-        std::string path;
-        std::string details;
-        size_t offset = 0;
+        std::string path;       // <-- Filesystem path where the error triggered
+        std::string details;    // <-- Descriptive low-level explanation or os-provided text
+        size_t offset = 0;      // <-- Absolute stream offset or index where operation failed
     };
 
+    // Generates the standard boilerplate required for a custom boost/std error category
     DEFINE_ERROR_CATEGORY(fs_errc, "System IO", {
         switch (e) {
             case sys_io::fs_errc::not_found:     return "@MSG_ERR_FS_NOT_FOUND@";
@@ -34,7 +37,10 @@ namespace sys_io {
     })
 }
 
+// Hooks the enum into the template specialized boost::system::is_error_code_enum trait system
 REGISTER_BOOST_ERROR(sys_io::fs_errc)
+
+// Registers a pretty-printer mapping error codes and fs_error_info structs to localized text templates
 REGISTER_ERROR_FORMATTER(sys_io::fs_errc, sys_io::fs_error_info, R"(@FS_TEMPLATE_VALUE@)",
     sys_io::get_error_message(err),
     boost::system::system_category().message(static_cast<int>(err)),
