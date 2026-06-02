@@ -204,54 +204,6 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAnalysisTool.dir/build.make CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/process/process_data.o: src/process/process_data.cpp.o
-.PHONY : src/process/process_data.o
-
-# target to build an object file
-src/process/process_data.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAnalysisTool.dir/build.make CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o
-.PHONY : src/process/process_data.cpp.o
-
-src/process/process_data.i: src/process/process_data.cpp.i
-.PHONY : src/process/process_data.i
-
-# target to preprocess a source file
-src/process/process_data.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAnalysisTool.dir/build.make CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.i
-.PHONY : src/process/process_data.cpp.i
-
-src/process/process_data.s: src/process/process_data.cpp.s
-.PHONY : src/process/process_data.s
-
-# target to generate assembly for a file
-src/process/process_data.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAnalysisTool.dir/build.make CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.s
-.PHONY : src/process/process_data.cpp.s
-
-src/process/process_discovery.o: src/process/process_discovery.cpp.o
-.PHONY : src/process/process_discovery.o
-
-# target to build an object file
-src/process/process_discovery.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAnalysisTool.dir/build.make CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o
-.PHONY : src/process/process_discovery.cpp.o
-
-src/process/process_discovery.i: src/process/process_discovery.cpp.i
-.PHONY : src/process/process_discovery.i
-
-# target to preprocess a source file
-src/process/process_discovery.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAnalysisTool.dir/build.make CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.i
-.PHONY : src/process/process_discovery.cpp.i
-
-src/process/process_discovery.s: src/process/process_discovery.cpp.s
-.PHONY : src/process/process_discovery.s
-
-# target to generate assembly for a file
-src/process/process_discovery.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAnalysisTool.dir/build.make CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.s
-.PHONY : src/process/process_discovery.cpp.s
-
 src/process/process_monitor.o: src/process/process_monitor.cpp.o
 .PHONY : src/process/process_monitor.o
 
@@ -341,12 +293,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/process/process_data.o"
-	@echo "... src/process/process_data.i"
-	@echo "... src/process/process_data.s"
-	@echo "... src/process/process_discovery.o"
-	@echo "... src/process/process_discovery.i"
-	@echo "... src/process/process_discovery.s"
 	@echo "... src/process/process_monitor.o"
 	@echo "... src/process/process_monitor.i"
 	@echo "... src/process/process_monitor.s"

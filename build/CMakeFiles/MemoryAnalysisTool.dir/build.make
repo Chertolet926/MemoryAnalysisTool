@@ -100,38 +100,10 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp -o CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.s
 
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/flags.make
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o: /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.cpp
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o -MF CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o.d -o CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o -c /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.cpp
-
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.cpp > CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.i
-
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.cpp -o CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.s
-
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/flags.make
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o: /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.cpp
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o -MF CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o.d -o CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o -c /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.cpp
-
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.cpp > CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.i
-
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.cpp -o CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.s
-
 CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/flags.make
 CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp
 CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o -MF CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o.d -o CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o -c /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp
 
 CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.i: cmake_force
@@ -145,7 +117,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.s: cmake_force
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/flags.make
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o: /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.cpp
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o -MF CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o.d -o CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o -c /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.cpp
 
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.i: cmake_force
@@ -159,7 +131,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.s: cmake_force
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/flags.make
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o: /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.cpp
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o: CMakeFiles/MemoryAnalysisTool.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o -MF CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o.d -o CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o -c /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.cpp
 
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.i: cmake_force
@@ -174,8 +146,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.s: cmake_force
 MemoryAnalysisTool_OBJECTS = \
 "CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o" \
-"CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o" \
-"CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o" \
 "CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o" \
 "CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o" \
 "CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o"
@@ -185,8 +155,6 @@ MemoryAnalysisTool_EXTERNAL_OBJECTS =
 
 MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cpp.o
 MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o
-MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o
-MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o
 MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o
 MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o
 MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o
@@ -194,7 +162,7 @@ MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/build.make
 MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/compiler_depend.ts
 MemoryAnalysisTool: /usr/lib/libQt6Core.so.6.11.1
 MemoryAnalysisTool: CMakeFiles/MemoryAnalysisTool.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable MemoryAnalysisTool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable MemoryAnalysisTool"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MemoryAnalysisTool.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

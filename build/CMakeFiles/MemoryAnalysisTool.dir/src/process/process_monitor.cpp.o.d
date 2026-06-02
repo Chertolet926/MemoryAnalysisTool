@@ -2,7 +2,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: \
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp \
  /usr/include/stdc-predef.h \
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp \
  /usr/include/sys/types.h /usr/include/features.h \
  /usr/include/features-time64.h /usr/include/bits/wordsize.h \
  /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
@@ -114,23 +114,24 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: \
  /usr/include/c++/16.1.1/cstddef \
  /usr/include/c++/16.1.1/bits/uses_allocator.h \
  /usr/include/c++/16.1.1/bits/uses_allocator_args.h \
- /usr/include/c++/16.1.1/tuple /usr/include/unistd.h \
- /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
- /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
- /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
- /usr/include/linux/close_range.h /usr/include/c++/16.1.1/cstdint \
+ /usr/include/c++/16.1.1/tuple /usr/include/c++/16.1.1/cstdint \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/stdint-uintn.h \
  /usr/include/bits/stdint-least.h \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/statm_entry.hpp \
- /usr/include/boost/fusion/adapted/struct/adapt_struct.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp \
+ /usr/include/boost/fusion/adapted/std_pair.hpp \
  /usr/include/boost/fusion/support/config.hpp \
  /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
  /usr/include/boost/config/compiler/gcc.hpp \
  /usr/include/boost/config/detail/select_stdlib_config.hpp \
  /usr/include/c++/16.1.1/version \
- /usr/include/boost/config/stdlib/libstdcpp3.hpp \
+ /usr/include/boost/config/stdlib/libstdcpp3.hpp /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h \
  /usr/include/boost/config/detail/select_platform_config.hpp \
  /usr/include/boost/config/platform/linux.hpp \
  /usr/include/boost/config/detail/posix_features.hpp \
@@ -141,6 +142,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: \
  /usr/include/boost/config/workaround.hpp /usr/include/c++/16.1.1/utility \
  /usr/include/c++/16.1.1/bits/stl_relops.h \
  /usr/include/c++/16.1.1/bits/intcmp.h \
+ /usr/include/boost/fusion/adapted/struct/adapt_struct.hpp \
  /usr/include/boost/preprocessor/config/config.hpp \
  /usr/include/boost/preprocessor/cat.hpp \
  /usr/include/boost/preprocessor/empty.hpp \
@@ -396,11 +398,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: \
  /usr/include/boost/fusion/adapted/struct/detail/end_impl.hpp \
  /usr/include/boost/fusion/adapted/struct/detail/value_of_impl.hpp \
  /usr/include/boost/fusion/adapted/struct/detail/deref_impl.hpp \
- /usr/include/boost/fusion/include/adapt_struct.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/utils/memory_types.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp \
- /usr/include/boost/fusion/adapted/std_pair.hpp \
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/kv_registry.hpp \
  /usr/include/c++/16.1.1/map /usr/include/c++/16.1.1/bits/stl_tree.h \
  /usr/include/c++/16.1.1/ext/aligned_buffer.h \
@@ -1287,5 +1284,12 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: \
  /usr/include/boost/filesystem/file_status.hpp \
  /usr/include/boost/detail/bitmask.hpp \
  /usr/include/boost/filesystem/operations.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/utils/memory_types.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/statm_entry.hpp \
+ /usr/include/boost/fusion/include/adapt_struct.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.hpp \
+ /usr/include/c++/16.1.1/unordered_set \
+ /usr/include/c++/16.1.1/bits/unordered_set.h

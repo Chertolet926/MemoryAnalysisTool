@@ -8,15 +8,14 @@
  /home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/4.3.3/CMakeSystem.cmake
  /home/gleb/Projects/save/MemoryAnalysisTool/cmake/error_messages.cmake
  /home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scranner.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_inspector.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor_polling.cpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/maps_scraper.hpp

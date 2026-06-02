@@ -7,15 +7,14 @@ MemoryAnalysisTool_autogen/timestamp: /home/gleb/Projects/save/MemoryAnalysisToo
   CMakeFiles/4.3.3/CMakeSystem.cmake \
   /home/gleb/Projects/save/MemoryAnalysisTool/cmake/error_messages.cmake \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scranner.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_inspector.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor_polling.cpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/maps_scraper.hpp \
@@ -148,8 +147,6 @@ MemoryAnalysisTool_autogen/timestamp: /home/gleb/Projects/save/MemoryAnalysisToo
   /usr/share/cmake/Modules/Platform/UnixPaths.cmake
 
 
-/usr/share/cmake/Modules/Platform/UnixPaths.cmake:
-
 /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake:
 
 /usr/share/cmake/Modules/Platform/Linux-GNU.cmake:
@@ -170,7 +167,7 @@ MemoryAnalysisTool_autogen/timestamp: /home/gleb/Projects/save/MemoryAnalysisToo
 
 /usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:
 
-/usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake:
+/usr/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake:
 
 /usr/lib/cmake/Qt6/QtPublicAppleHelpers.cmake:
 
@@ -192,6 +189,10 @@ MemoryAnalysisTool_autogen/timestamp: /home/gleb/Projects/save/MemoryAnalysisToo
 
 /usr/lib/cmake/Qt6/QtFeature.cmake:
 
+/usr/lib/cmake/Qt6/QtPublicSbomAttributionHelpers.cmake:
+
+/usr/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake:
+
 /usr/lib/cmake/Qt6/Qt6VersionlessAliasTargets.cmake:
 
 /usr/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake:
@@ -208,7 +209,15 @@ MemoryAnalysisTool_autogen/timestamp: /home/gleb/Projects/save/MemoryAnalysisToo
 
 /usr/lib/cmake/Qt6/QtPublicSbomRelationshipHelpers.cmake:
 
-/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.cpp:
+/usr/lib/cmake/Qt6/FindWrapAtomic.cmake:
+
+/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.hpp:
+
+/usr/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake:
+
+/usr/share/cmake/Modules/Platform/UnixPaths.cmake:
+
+/home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp:
 
 /usr/lib/cmake/Qt6/QtPublicExternalProjectHelpers.cmake:
 
@@ -226,29 +235,23 @@ CMakeFiles/4.3.3/CMakeCXXCompiler.cmake:
 
 /usr/share/cmake/Modules/CMakeGenericSystem.cmake:
 
-/usr/lib/cmake/Qt6/FindWrapAtomic.cmake:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp:
-
-/usr/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake:
-
 CMakeFiles/4.3.3/CMakeCCompiler.cmake:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp:
-
-/usr/lib/cmake/Qt6/QtPublicSbomLicenseHelpers.cmake:
 
 /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp:
 
 /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp:
 
-/usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake:
+/home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp:
 
-/usr/share/cmake/Modules/Compiler/GNU.cmake:
+/usr/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake:
 
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor_polling.cpp:
+/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/smaps_scraper.hpp:
 
-/usr/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake:
+/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp:
+
+/usr/lib/cmake/Qt6/QtPublicCMakeEarlyPolicyHelpers.cmake:
+
+/usr/share/cmake/Modules/FindThreads.cmake:
 
 /usr/lib/cmake/Qt6/QtPublicGitHelpers.cmake:
 
@@ -274,15 +277,17 @@ CMakeFiles/4.3.3/CMakeSystem.cmake:
 
 /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake:
 
-/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.hpp:
+/usr/lib/cmake/Qt6/QtPublicSbomLicenseHelpers.cmake:
 
-/usr/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake:
+/home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp:
 
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scranner.hpp:
+/usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake:
+
+/usr/share/cmake/Modules/Compiler/GNU.cmake:
+
+/home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp:
 
 /usr/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp:
 
 /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp:
 
@@ -298,31 +303,19 @@ CMakeFiles/4.3.3/CMakeSystem.cmake:
 
 /usr/lib/cmake/Qt6/QtPublicPluginHelpers.cmake:
 
-/usr/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/smaps_scraper.hpp:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp:
-
-/usr/lib/cmake/Qt6/QtPublicCMakeEarlyPolicyHelpers.cmake:
-
-/usr/share/cmake/Modules/FindThreads.cmake:
-
 /usr/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:
 
 /usr/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargetsPrecheck.cmake:
 
-/usr/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake:
-
 /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.cpp:
+
+/usr/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake:
 
 /usr/share/cmake/Modules/Compiler/GNU-C.cmake:
 
-/usr/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake:
+/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.cpp:
 
-/usr/lib/cmake/Qt6/QtPublicSbomAttributionHelpers.cmake:
-
-/usr/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake:
+/usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake:
 
 /usr/lib/cmake/Qt6/QtPublicSbomBuildToolHelpers.cmake:
 
@@ -371,6 +364,10 @@ CMakeFiles/4.3.3/CMakeSystem.cmake:
 /usr/lib/cmake/Qt6Core/Qt6CoreVersionlessAliasTargets.cmake:
 
 /usr/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:
+
+/usr/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake:
+
+/usr/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake:
 
 /usr/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:
 

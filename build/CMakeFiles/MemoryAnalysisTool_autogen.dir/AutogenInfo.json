@@ -147,21 +147,45 @@
 	"HEADERS" : 
 	[
 		[
-			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.hpp",
+			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp",
 			"Mu",
-			"QUASNKNROA/moc_process_data.cpp",
+			"QUASNKNROA/moc_pid_scanner.cpp",
 			null
 		],
 		[
-			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.hpp",
+			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp",
 			"Mu",
-			"QUASNKNROA/moc_process_discovery.cpp",
+			"QUASNKNROA/moc_process_filter.cpp",
+			null
+		],
+		[
+			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_inspector.hpp",
+			"Mu",
+			"QUASNKNROA/moc_process_inspector.cpp",
 			null
 		],
 		[
 			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp",
 			"Mu",
 			"QUASNKNROA/moc_process_monitor.cpp",
+			null
+		],
+		[
+			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp",
+			"Mu",
+			"QUASNKNROA/moc_process_tree.cpp",
+			null
+		],
+		[
+			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp",
+			"Mu",
+			"QUASNKNROA/moc_procfs_reader.cpp",
+			null
+		],
+		[
+			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp",
+			"Mu",
+			"QUASNKNROA/moc_types.cpp",
 			null
 		],
 		[
@@ -315,16 +339,6 @@
 	[
 		[
 			"/home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp",
-			"Mu",
-			null
-		],
-		[
-			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.cpp",
-			"Mu",
-			null
-		],
-		[
-			"/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.cpp",
 			"Mu",
 			null
 		],

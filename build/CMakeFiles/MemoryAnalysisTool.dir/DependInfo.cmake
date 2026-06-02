@@ -10,8 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/gleb/Projects/save/MemoryAnalysisTool/build/MemoryAnalysisTool_autogen/mocs_compilation.cpp" "CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cpp.o.d"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp" "CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o" "gcc" "CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o.d"
-  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.cpp" "CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o" "gcc" "CMakeFiles/MemoryAnalysisTool.dir/src/process/process_data.cpp.o.d"
-  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.cpp" "CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o" "gcc" "CMakeFiles/MemoryAnalysisTool.dir/src/process/process_discovery.cpp.o.d"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp" "CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o" "gcc" "CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o.d"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.cpp" "CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o" "gcc" "CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o.d"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.cpp" "CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o" "gcc" "CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o.d"

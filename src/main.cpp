@@ -10,9 +10,11 @@
 #include "scrapers/maps_scraper.hpp"
 #include "scrapers/smaps_scraper.hpp"
 
-// Обновленные и объединенные заголовочные файлы подсистемы маппинга процессов
-#include "process/process_discovery.hpp"
-#include "process/process_data.hpp"
+// Прямое подключение модулей подсистемы process без использования сквозного process_discovery.hpp
+#include "process/types.hpp"
+#include "process/pid_scanner.hpp"
+#include "process/procfs_reader.hpp"
+#include "process/process_tree.hpp"
 #include "process/process_monitor.hpp"
 
 #include <filesystem>
@@ -22,7 +24,7 @@
 #include <vector>
 #include <mutex>
 #include <algorithm>
-#include <functional> // Для поддержки современных функциональных объектов
+#include <functional>
 
 using namespace std::chrono_literals;
 namespace fs = std::filesystem;
@@ -177,8 +179,7 @@ bool test_statm_scraper() {
     }
 
     const auto& entry = *result;
-    // Используем хелпер преобразования страниц памяти в байты
-    spdlog::info("Memory Statistics (Total size: {} bytes)", scrapers::pages_to_bytes(entry.size));
+    spdlog::info("Memory Statistics (Total size: {} bytes)", entry.size.bytes());
     return true;
 }
 
@@ -256,7 +257,6 @@ bool test_process_list() {
     for (pid_t pid : pids) {
         if (displayed >= 5) break;
 
-        // Переведено на использование нового публичного ProcfsReader
         auto status_meta = process::ProcfsReader::fetch_status_meta(pid);
         if (!status_meta) { skipped++; continue; }
 
@@ -265,9 +265,8 @@ bool test_process_list() {
 
         const auto& m = *metrics_opt;
         
-        // Переводим страницы ядра Linux в Килобайты для корректного логирования
-        uint64_t size_kb = scrapers::pages_to_bytes(m.size) / 1024;
-        uint64_t rss_kb  = scrapers::pages_to_bytes(m.resident) / 1024;
+        uint64_t size_kb = m.size.bytes() / 1024;
+        uint64_t rss_kb  = m.resident.bytes() / 1024;
 
         spdlog::info("PID: {:>6} | PPID: {:>6} | Name: {:<16} | Size: {:>8} KB | RSS: {:>8} KB | Threads: {}",
             pid, status_meta->ppid, status_meta->name, size_kb, rss_kb, status_meta->thread_count);
@@ -278,13 +277,11 @@ bool test_process_list() {
     return true;
 }
 
-// Рекурсивный вывод дерева с псевдографикой
 void print_process_hierarchy(const process::ProcessTreeNode& node, 
                              std::string indent = "", 
                              bool is_last = true) 
 {
     std::string branch = is_last ? "└── " : "├── ";
-    // Исправлено обращение к внутренней структуре MemoryMetrics
     double rss_mb = static_cast<double>(node.info.memory.rss_bytes) / (1024.0 * 1024.0);
     
     spdlog::info("{}{}[PID: {:5}] Name: {:<16} | RSS: {:>6.2f} MB | Threads: {}", 
@@ -302,7 +299,6 @@ void print_process_hierarchy(const process::ProcessTreeNode& node,
     }
 }
 
-// Тест 10: Тест асинхронного гибридного монитора процессов с иерархическим группированием
 bool test_process_monitoring() {
     spdlog::info("========== TEST 10: PROCESS MONITORING (HIERARCHICAL GROUPING & SEAMLESS OPTION) ==========");
 
@@ -336,22 +332,19 @@ bool test_process_monitoring() {
         std::lock_guard<std::mutex> lock(tracked_mutex);
         spdlog::info("Currently tracking {} active user-space processes.", tracked_processes.size());
 
-        // Метод build принимает данные по значению, безопасно передаем копию вектора под защитой мьютекса
         auto roots = process::ProcessTreeBuilder::build(tracked_processes);
         spdlog::info("Built {} distinct process root groups.", roots.size());
 
-        // Опция 1: Свернутый/Агрегированный список (Общие метрики приложений)
         spdlog::info("=== OPTION 1: COLLAPSED / AGGREGATED VIEW (Master Processes) ===");
         int count = 0;
         for (const auto& app : roots) {
-            if (++count > 5) break; // Лимитируем вывод
+            if (++count > 5) break; 
             double total_rss_mb = static_cast<double>(app.aggregate_rss()) / (1024.0 * 1024.0);
             size_t total_threads = app.aggregate_threads();
             spdlog::info("Application: {:<16} | Total RSS: {:>7.2f} MB | Sub-processes: {:>2} | OS Threads: {}", 
                          app.info.name, total_rss_mb, app.children.size(), total_threads);
         }
 
-        // Опция 2: Развернутый вид (Полноценное дерево процессов по требованию)
         if (!roots.empty()) {
             auto max_it = std::max_element(roots.begin(), roots.end(),
                 [](const auto& a, const auto& b) { return a.aggregate_rss() < b.aggregate_rss(); });
@@ -368,7 +361,7 @@ bool test_process_monitoring() {
 
 int main() {
     logger_utils::initLogger();
-    spdlog::set_level(spdlog::level::debug); // Включаем отладку для просмотра частых обновлений памяти
+    spdlog::set_level(spdlog::level::debug); 
     spdlog::info("=== Memory Analysis Tool - Component Tests ===\n");
 
     struct TestResult {

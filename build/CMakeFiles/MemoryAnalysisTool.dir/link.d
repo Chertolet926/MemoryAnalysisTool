@@ -5,7 +5,6 @@ MemoryAnalysisTool: \
   CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o \
-  CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor_polling.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o \
   /usr/lib/libQt6Core.so.6.11.1 \
@@ -67,8 +66,6 @@ CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cp
 CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 
 CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o:
-
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor_polling.cpp.o:
 
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o:
 

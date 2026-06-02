@@ -9,13 +9,12 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o
  /home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp
  /home/gleb/Projects/save/MemoryAnalysisTool/build/generated_include/scrapers/scrapper_errors.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/build/generated_include/sys_io/fs_error.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scranner.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_inspector.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/maps_scraper.hpp
@@ -1467,15 +1466,17 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp
  /home/gleb/Projects/save/MemoryAnalysisTool/build/generated_include/scrapers/scrapper_errors.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/build/generated_include/sys_io/fs_error.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/kv_registry.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/statm_entry.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_fd.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.hpp
  /home/gleb/Projects/save/MemoryAnalysisTool/src/utils/error_utils.hpp
@@ -2708,6 +2709,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o
  /usr/include/c++/16.1.1/bits/unique_lock.h
  /usr/include/c++/16.1.1/bits/unique_ptr.h
  /usr/include/c++/16.1.1/bits/unordered_map.h
+ /usr/include/c++/16.1.1/bits/unordered_set.h
  /usr/include/c++/16.1.1/bits/uses_allocator.h
  /usr/include/c++/16.1.1/bits/uses_allocator_args.h
  /usr/include/c++/16.1.1/bits/utility.h
@@ -2799,6 +2801,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o
  /usr/include/c++/16.1.1/type_traits
  /usr/include/c++/16.1.1/typeinfo
  /usr/include/c++/16.1.1/unordered_map
+ /usr/include/c++/16.1.1/unordered_set
  /usr/include/c++/16.1.1/utility
  /usr/include/c++/16.1.1/variant
  /usr/include/c++/16.1.1/vector
@@ -3758,7 +3761,6 @@ MemoryAnalysisTool
  /home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cpp.o
  /home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o
  /home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o
- /home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor_polling.cpp.o
  /home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o
  /home/gleb/Projects/save/MemoryAnalysisTool/build/CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o
 

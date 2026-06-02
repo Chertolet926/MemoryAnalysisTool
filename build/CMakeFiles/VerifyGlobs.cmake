@@ -5,8 +5,6 @@
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/gleb/Projects/save/MemoryAnalysisTool/src/*.cpp")
 set(OLD_GLOB
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp"
-  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.cpp"
-  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.cpp"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.cpp"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.cpp"
@@ -60,9 +58,13 @@ endif()
 # SOURCES at CMakeLists.txt:24 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/gleb/Projects/save/MemoryAnalysisTool/src/*.hpp")
 set(OLD_GLOB
-  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.hpp"
-  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.hpp"
+  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp"
+  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp"
+  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_inspector.hpp"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp"
+  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp"
+  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp"
+  "/home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp"
   "/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/maps_scraper.hpp"

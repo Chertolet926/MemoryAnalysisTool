@@ -7,13 +7,12 @@ CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cp
 CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o: /home/gleb/Projects/save/MemoryAnalysisTool/src/main.cpp \
   generated_include/scrapers/scrapper_errors.hpp \
   generated_include/sys_io/fs_error.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scranner.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_inspector.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/maps_scraper.hpp \
@@ -1464,15 +1463,17 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o: /home/gleb/Projects/save/Memor
 CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.cpp \
   generated_include/scrapers/scrapper_errors.hpp \
   generated_include/sys_io/fs_error.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp \
-  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/base_scraper.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/kv_scraper.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/kv_registry.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/statm_entry.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp \
+  /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_fd.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_reader.hpp \
   /home/gleb/Projects/save/MemoryAnalysisTool/src/utils/error_utils.hpp \
@@ -2705,6 +2706,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: /home/gleb/
   /usr/include/c++/16.1.1/bits/unique_lock.h \
   /usr/include/c++/16.1.1/bits/unique_ptr.h \
   /usr/include/c++/16.1.1/bits/unordered_map.h \
+  /usr/include/c++/16.1.1/bits/unordered_set.h \
   /usr/include/c++/16.1.1/bits/uses_allocator.h \
   /usr/include/c++/16.1.1/bits/uses_allocator_args.h \
   /usr/include/c++/16.1.1/bits/utility.h \
@@ -2796,6 +2798,7 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o: /home/gleb/
   /usr/include/c++/16.1.1/type_traits \
   /usr/include/c++/16.1.1/typeinfo \
   /usr/include/c++/16.1.1/unordered_map \
+  /usr/include/c++/16.1.1/unordered_set \
   /usr/include/c++/16.1.1/utility \
   /usr/include/c++/16.1.1/variant \
   /usr/include/c++/16.1.1/vector \
@@ -3752,7 +3755,6 @@ MemoryAnalysisTool: /usr/lib/Scrt1.o \
   CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o \
-  CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor_polling.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o \
   CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o
 
@@ -3760,8 +3762,6 @@ MemoryAnalysisTool: /usr/lib/Scrt1.o \
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_reader.cpp.o:
 
 CMakeFiles/MemoryAnalysisTool.dir/src/sys_io/fs_directory.cpp.o:
-
-CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor_polling.cpp.o:
 
 CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 
@@ -4002,6 +4002,8 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 /usr/include/c++/16.1.1/x86_64-pc-linux-gnu/bits/c++locale.h:
 
 /usr/include/c++/16.1.1/ext/type_traits.h:
+
+/usr/include/c++/16.1.1/ext/string_conversions.h:
 
 /usr/include/c++/16.1.1/ext/numeric_traits.h:
 
@@ -4290,8 +4292,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 /usr/include/boost/variant/detail/substitute_fwd.hpp:
 
 /usr/include/boost/variant/detail/std_hash.hpp:
-
-/usr/include/boost/variant/detail/over_sequence.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/inherit.hpp:
 
@@ -4657,10 +4657,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 
 /usr/include/boost/fusion/support/is_segmented.hpp:
 
-/usr/include/c++/16.1.1/ext/string_conversions.h:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/monitor_types.hpp:
-
 /usr/include/c++/16.1.1/pstl/glue_memory_defs.h:
 
 /usr/include/boost/mpl/bool_fwd.hpp:
@@ -4717,8 +4713,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 
 /usr/include/boost/mpl/push_back_fwd.hpp:
 
-/usr/include/boost/fusion/iterator/deref_data.hpp:
-
 /usr/include/bits/stdint-uintn.h:
 
 /usr/include/boost/spirit/home/x3/operator/and_predicate.hpp:
@@ -4734,10 +4728,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 /usr/include/boost/mpl/aux_/front_impl.hpp:
 
 /usr/include/boost/preprocessor/array/elem.hpp:
-
-/usr/include/boost/mpl/O1_size.hpp:
-
-/usr/include/boost/spirit/home/x3/support/traits/is_parser.hpp:
 
 /usr/include/boost/fusion/include/iterator_range.hpp:
 
@@ -4760,6 +4750,8 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 /usr/include/boost/system/detail/snprintf.hpp:
 
 /usr/include/boost/type_traits/is_empty.hpp:
+
+/usr/include/boost/fusion/container/map/map_fwd.hpp:
 
 /usr/include/boost/fusion/container/map/detail/end_impl.hpp:
 
@@ -4790,8 +4782,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o:
 /usr/include/boost/range/end.hpp:
 
 /usr/include/boost/fusion/container/list/detail/empty_impl.hpp:
-
-/usr/include/boost/fusion/container/list/detail/deref_impl.hpp:
 
 /usr/include/boost/fusion/container/deque/deque.hpp:
 
@@ -4877,6 +4867,10 @@ generated_include/scrapers/scrapper_errors.hpp:
 
 /usr/include/boost/fusion/sequence/intrinsic/detail/segmented_end_impl.hpp:
 
+/usr/include/c++/16.1.1/iosfwd:
+
+/usr/include/boost/core/ref.hpp:
+
 /home/gleb/Projects/save/MemoryAnalysisTool/src/sys_io/fs_directory.hpp:
 
 /usr/include/c++/16.1.1/bits/stl_map.h:
@@ -4957,6 +4951,12 @@ generated_include/scrapers/scrapper_errors.hpp:
 
 /usr/include/boost/type_traits/detail/has_binary_operator.hpp:
 
+/usr/include/boost/mpl/aux_/has_type.hpp:
+
+/usr/include/bits/atomic_wide_counter.h:
+
+/usr/include/boost/spirit/home/x3/core/parse.hpp:
+
 /usr/include/bits/posix2_lim.h:
 
 /usr/include/bits/types/timer_t.h:
@@ -4966,8 +4966,6 @@ generated_include/scrapers/scrapper_errors.hpp:
 /usr/include/boost/config/detail/posix_features.hpp:
 
 /usr/include/boost/preprocessor/arithmetic/add.hpp:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_inspector.hpp:
 
 /usr/include/bits/mathcalls-narrow.h:
 
@@ -5015,6 +5013,8 @@ generated_include/scrapers/scrapper_errors.hpp:
 
 /usr/include/asm/unistd_64.h:
 
+/usr/include/boost/blank_fwd.hpp:
+
 /usr/include/boost/mpl/aux_/iter_push_front.hpp:
 
 /usr/include/bits/libc-header-start.h:
@@ -5059,14 +5059,6 @@ generated_include/scrapers/scrapper_errors.hpp:
 
 /usr/include/boost/type_index/detail/config.hpp:
 
-/usr/include/boost/iterator/detail/type_traits/conjunction.hpp:
-
-/usr/include/boost/fusion/view/single_view/detail/deref_impl.hpp:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp:
-
-/usr/include/boost/fusion/container/deque/detail/convert_impl.hpp:
-
 /usr/include/boost/iterator/iterator_facade.hpp:
 
 /usr/include/boost/fusion/mpl/begin.hpp:
@@ -5074,6 +5066,10 @@ generated_include/scrapers/scrapper_errors.hpp:
 /usr/include/c++/16.1.1/bits/ranges_util.h:
 
 /usr/include/boost/fusion/container/deque/detail/build_deque.hpp:
+
+/usr/include/boost/fusion/sequence/intrinsic/detail/segmented_end.hpp:
+
+/usr/include/bits/floatn.h:
 
 /usr/include/boost/fusion/iterator/detail/segmented_iterator.hpp:
 
@@ -5129,29 +5125,17 @@ MemoryAnalysisTool_autogen/mocs_compilation.cpp:
 
 /usr/include/boost/spirit/home/x3/support/traits/transform_attribute.hpp:
 
-/usr/include/boost/blank_fwd.hpp:
+/usr/include/asm-generic/errno-base.h:
 
-/usr/include/bits/floatn.h:
+/usr/include/boost/mp11/detail/mp_rename.hpp:
 
-/usr/include/boost/fusion/sequence/intrinsic/detail/segmented_end.hpp:
+/usr/include/boost/fusion/view/iterator_range/detail/segments_impl.hpp:
 
-/usr/include/boost/fusion/adapted/mpl/detail/has_key_impl.hpp:
+/usr/include/boost/fusion/view/joint_view/detail/deref_data_impl.hpp:
 
-/usr/include/boost/fusion/view/single_view/detail/equal_to_impl.hpp:
+/usr/lib/crtn.o:
 
-/usr/include/boost/spirit/home/x3/core/action.hpp:
-
-/usr/include/bits/types/struct_statx.h:
-
-/usr/include/boost/mpl/aux_/template_arity.hpp:
-
-/usr/include/c++/16.1.1/bits/stl_raw_storage_iter.h:
-
-/usr/include/boost/mpl/identity.hpp:
-
-/usr/include/boost/mpl/advance.hpp:
-
-/usr/include/bits/typesizes.h:
+/usr/include/asm-generic/types.h:
 
 /usr/include/c++/16.1.1/bits/locale_classes.tcc:
 
@@ -5161,21 +5145,11 @@ MemoryAnalysisTool_autogen/mocs_compilation.cpp:
 
 /usr/include/boost/type_traits/has_trivial_constructor.hpp:
 
-/usr/include/boost/mpl/aux_/has_type.hpp:
-
-/usr/include/bits/atomic_wide_counter.h:
-
-/usr/include/boost/spirit/home/x3/core/parse.hpp:
+/usr/include/bits/typesizes.h:
 
 /usr/include/boost/fusion/view/iterator_range/detail/end_impl.hpp:
 
 /usr/include/boost/spirit/home/support/char_set/range_run.hpp:
-
-/usr/include/boost/fusion/support/category_of.hpp:
-
-/usr/include/boost/spirit/home/x3/support/expectation.hpp:
-
-/usr/include/boost/spirit/home/x3/operator/detail/alternative.hpp:
 
 /usr/include/asm-generic/posix_types.h:
 
@@ -5189,9 +5163,35 @@ MemoryAnalysisTool_autogen/mocs_compilation.cpp:
 
 /usr/include/boost/preprocessor/repetition/limits/for_256.hpp:
 
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_reader.hpp:
+/usr/include/boost/iterator/detail/type_traits/conjunction.hpp:
 
-/usr/include/boost/fusion/container/map/map_fwd.hpp:
+/usr/include/boost/fusion/view/single_view/detail/deref_impl.hpp:
+
+/home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/statm_scraper.hpp:
+
+/usr/include/boost/fusion/container/deque/detail/convert_impl.hpp:
+
+/usr/include/boost/spirit/home/x3/support/traits/is_parser.hpp:
+
+/usr/include/boost/mpl/O1_size.hpp:
+
+/usr/include/boost/fusion/iterator/deref_data.hpp:
+
+/home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp:
+
+/usr/include/boost/preprocessor/detail/is_binary.hpp:
+
+/usr/include/boost/mpl/aux_/lambda_arity_param.hpp:
+
+/usr/include/boost/mpl/has_key_fwd.hpp:
+
+/usr/include/boost/mpl/aux_/config/integral.hpp:
+
+/usr/include/boost/fusion/container/list/detail/reverse_cons.hpp:
+
+/usr/include/boost/optional/detail/optional_relops.hpp:
+
+/usr/include/boost/concept/detail/concept_undef.hpp:
 
 /usr/include/bits/libm-simd-decl-stubs.h:
 
@@ -5215,29 +5215,9 @@ MemoryAnalysisTool_autogen/mocs_compilation.cpp:
 
 /usr/include/boost/fusion/adapted/mpl.hpp:
 
-/usr/include/boost/mpl/aux_/lambda_arity_param.hpp:
+/home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp:
 
-/usr/include/boost/mpl/has_key_fwd.hpp:
-
-/usr/include/boost/mpl/aux_/config/integral.hpp:
-
-/usr/include/boost/fusion/container/list/detail/reverse_cons.hpp:
-
-/usr/include/boost/optional/detail/optional_relops.hpp:
-
-/usr/include/boost/concept/detail/concept_undef.hpp:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/boost/mp11/detail/mp_rename.hpp:
-
-/usr/include/boost/fusion/view/iterator_range/detail/segments_impl.hpp:
-
-/usr/include/boost/fusion/view/joint_view/detail/deref_data_impl.hpp:
-
-/usr/lib/crtn.o:
-
-/usr/include/asm-generic/types.h:
+/usr/include/boost/type_traits/aligned_storage.hpp:
 
 /usr/include/boost/io/detail/buffer_fill.hpp:
 
@@ -5323,6 +5303,22 @@ generated_include/sys_io/fs_error.hpp:
 
 /usr/include/boost/spirit/home/x3/operator/kleene.hpp:
 
+/usr/include/boost/fusion/adapted/mpl/detail/has_key_impl.hpp:
+
+/usr/include/boost/fusion/view/single_view/detail/equal_to_impl.hpp:
+
+/usr/include/boost/spirit/home/x3/core/action.hpp:
+
+/usr/include/bits/types/struct_statx.h:
+
+/usr/include/boost/mpl/aux_/template_arity.hpp:
+
+/usr/include/c++/16.1.1/bits/stl_raw_storage_iter.h:
+
+/usr/include/boost/mpl/identity.hpp:
+
+/usr/include/boost/mpl/advance.hpp:
+
 /usr/include/c++/16.1.1/memory:
 
 /usr/include/bits/types/__FILE.h:
@@ -5340,6 +5336,8 @@ generated_include/sys_io/fs_error.hpp:
 /usr/include/boost/fusion/adapted/struct/detail/size_impl.hpp:
 
 /usr/include/boost/system/detail/error_code.hpp:
+
+/home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp:
 
 /usr/include/c++/16.1.1/numbers:
 
@@ -5597,17 +5595,17 @@ generated_include/sys_io/fs_error.hpp:
 
 /usr/include/boost/type_traits/is_assignable.hpp:
 
-/usr/include/c++/16.1.1/iosfwd:
-
-/usr/include/boost/core/ref.hpp:
-
-/usr/include/endian.h:
-
-/usr/include/boost/mpl/minus.hpp:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_impl.hpp:
-
 /usr/include/boost/fusion/sequence/intrinsic/has_key.hpp:
+
+/usr/include/boost/fusion/view/single_view/detail/begin_impl.hpp:
+
+/usr/include/boost/fusion/adapted/mpl/detail/is_sequence_impl.hpp:
+
+/usr/include/boost/fusion/adapted/struct/detail/category_of_impl.hpp:
+
+/usr/include/boost/mpl/list/aux_/pop_front.hpp:
+
+/usr/include/boost/spirit/home/x3/nonterminal/detail/transform_attribute.hpp:
 
 /usr/include/boost/iterator/iterator_adaptor.hpp:
 
@@ -5715,16 +5713,6 @@ generated_include/sys_io/fs_error.hpp:
 
 /usr/include/boost/spirit/home/x3/support/traits/optional_traits.hpp:
 
-/usr/include/boost/fusion/view/single_view/detail/begin_impl.hpp:
-
-/usr/include/boost/fusion/adapted/mpl/detail/is_sequence_impl.hpp:
-
-/usr/include/boost/spirit/home/x3/nonterminal/detail/transform_attribute.hpp:
-
-/usr/include/boost/fusion/adapted/struct/detail/category_of_impl.hpp:
-
-/usr/include/boost/mpl/list/aux_/pop_front.hpp:
-
 /usr/include/boost/limits.hpp:
 
 /usr/include/boost/fusion/view/single_view/detail/value_at_impl.hpp:
@@ -5810,6 +5798,14 @@ generated_include/sys_io/fs_error.hpp:
 /usr/include/boost/fusion/view/single_view/single_view_iterator.hpp:
 
 /usr/include/boost/fusion/container/list/detail/at_impl.hpp:
+
+/usr/include/boost/fusion/container/list/detail/deref_impl.hpp:
+
+/usr/include/boost/fusion/support/category_of.hpp:
+
+/usr/include/boost/spirit/home/x3/operator/detail/alternative.hpp:
+
+/usr/include/boost/spirit/home/x3/support/expectation.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/less.hpp:
 
@@ -5912,8 +5908,6 @@ generated_include/sys_io/fs_error.hpp:
 /usr/include/c++/16.1.1/tuple:
 
 /usr/include/boost/mpl/fold.hpp:
-
-/home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scranner.hpp:
 
 /usr/include/asm/bitsperlong.h:
 
@@ -6039,6 +6033,12 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o:
 
 /usr/include/boost/spirit/home/x3/support/traits/is_substitute.hpp:
 
+/usr/include/endian.h:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_impl.hpp:
+
+/usr/include/boost/mpl/minus.hpp:
+
 /usr/include/c++/16.1.1/vector:
 
 /usr/include/boost/mpl/negate.hpp:
@@ -6158,8 +6158,6 @@ CMakeFiles/MemoryAnalysisTool.dir/src/process/process_monitor.cpp.o:
 /usr/include/boost/preprocessor/debug/error.hpp:
 
 /usr/include/boost/preprocessor/detail/check.hpp:
-
-/usr/include/boost/preprocessor/detail/is_binary.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_if_impl.hpp:
 
@@ -6607,8 +6605,6 @@ CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cp
 
 /usr/include/boost/type_traits/add_volatile.hpp:
 
-/usr/include/boost/type_traits/aligned_storage.hpp:
-
 /usr/include/boost/type_traits/conditional.hpp:
 
 /usr/include/c++/16.1.1/bits/algorithmfwd.h:
@@ -6762,3 +6758,5 @@ CMakeFiles/MemoryAnalysisTool.dir/MemoryAnalysisTool_autogen/mocs_compilation.cp
 /usr/include/boost/variant/detail/has_result_type.hpp:
 
 /usr/include/boost/variant/detail/make_variant_list.hpp:
+
+/usr/include/boost/variant/detail/over_sequence.hpp:

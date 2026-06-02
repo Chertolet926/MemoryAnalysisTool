@@ -1296,8 +1296,16 @@ CMakeFiles/MemoryAnalysisTool.dir/src/main.cpp.o: \
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/map_entry.hpp \
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/smaps_scraper.hpp \
  /home/gleb/Projects/save/MemoryAnalysisTool/src/scrapers/models/smap_entry.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_discovery.hpp \
- /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_data.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/types.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/pid_scanner.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_filter.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/procfs_reader.hpp \
+ /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_tree.hpp \
+ /usr/include/c++/16.1.1/unordered_set \
+ /usr/include/c++/16.1.1/bits/unordered_set.h \
+ /usr/include/c++/16.1.1/numeric \
+ /usr/include/c++/16.1.1/bits/stl_numeric.h \
+ /usr/include/c++/16.1.1/pstl/glue_numeric_defs.h \
  /home/gleb/Projects/save/MemoryAnalysisTool/src/process/process_monitor.hpp \
  /usr/include/c++/16.1.1/fstream \
  /usr/include/c++/16.1.1/x86_64-pc-linux-gnu/bits/basic_file.h \

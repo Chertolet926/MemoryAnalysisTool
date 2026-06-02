@@ -1,149 +1,139 @@
 #include "process/process_monitor.hpp"
-#include <unordered_set>
+#include "process/pid_scanner.hpp"
 #include <spdlog/spdlog.h>
+#include <unordered_set>
 
 namespace process {
+    /**
+    * @brief Constructs a ProcessMonitor instance with execution parameters.
+    * @param cb         Invocable target triggered when telemetry updates or state changes are detected.
+    * @param interval   Time duration to sleep between sequential /proc scan sweeps.
+    * @param mode       Structural strategy flag for monitoring operations.
+    */
+    ProcessMonitor::ProcessMonitor(Callback cb, std::chrono::milliseconds interval) noexcept : callback_(std::move(cb)), interval_(interval){}
 
-    ProcessMonitor::ProcessMonitor(Callback cb, 
-                                   std::chrono::milliseconds interval,
-                                   MonitorMode mode) noexcept
-        : callback_(std::move(cb)), interval_(interval), mode_(mode) {}
+    // @brief Destructor. Ensures the background worker thread is safely halted and joined.
+    ProcessMonitor::~ProcessMonitor() { stop(); }
 
-    ProcessMonitor::~ProcessMonitor() {
-        stop();
-    }
-
+    // @brief Spawns the background telemetry worker thread if it is not already active.
     void ProcessMonitor::start() noexcept {
         std::lock_guard lock(mutex_);
-        if (worker_.joinable()) return;
-
-        worker_ = std::jthread([this](std::stop_token st) noexcept { run(st); });
+        if (!worker_.joinable()) worker_ = std::jthread(
+            [this](std::stop_token st) noexcept { run(st); });
     }
 
+    // @brief Initiates a cooperative cancellation request, interrupts waiting states, and joins the worker.
     void ProcessMonitor::stop() noexcept {
+        
         {
+            // Scoped lock bounds to quickly evaluate lifecycle status
             std::lock_guard lock(mutex_);
             if (!worker_.joinable()) return;
         }
+        
         worker_.request_stop();
-        cv_.notify_all();
-        worker_.join();
+        cv_.notify_all();       // Wake up thread if it is currently parked within wait_for
+        worker_.join();         // Block until the execution frame unwinds entirely
     }
 
+    /**
+    * @brief Forwards a new runtime configuration rule-set to the internal atomic filter.
+    * @param config The updated process filtering constraints.
+    */
     void ProcessMonitor::update_filter(FilterConfig config) noexcept {
         filter_.set_config(config);
     }
 
     void ProcessMonitor::run(std::stop_token st) noexcept {
         spdlog::info("ProcessMonitor: Loop initialized.");
-        run_polling(st);
-    }
 
-    void ProcessMonitor::run_polling(std::stop_token st) noexcept {
         std::unordered_map<pid_t, CachedState> cache;
-        
-        // Выделяем память под буферы ОДИН раз. Внутри цикла делаем только clear().
         std::vector<ProcessEvent> events;
         std::unordered_set<pid_t> active_set;
         
+        // Pre-allocate to prevent runtime churn
         events.reserve(128);
         active_set.reserve(1024);
 
         while (!st.stop_requested()) {
-            auto active_pids_res = scan_pids(filter_); 
-            if (!active_pids_res) {
-                std::this_thread::yield();
-                continue;
+            if (auto pids_res = scan_pids(filter_)) {
+                active_set.clear();
+                active_set.insert(pids_res->begin(), pids_res->end());
+                events.clear();
+
+                // Step 1: Evict terminated processes from the cache
+                std::erase_if(cache, [&](auto& item) {
+                    auto& [pid, state] = item;
+                    if (!active_set.contains(pid)) {
+                        events.push_back({
+                            ProcessEventKind::Terminated,
+                            ProcessInfo{pid, state.ppid, state.thread_count, std::move(state.name)}
+                        });    
+                        return true;
+                    }
+                    return false;
+                });
+
+                // Step 2: Process active execution layout
+                for (pid_t pid : *pids_res)
+                    process_single_pid(pid, cache, events);
+
+                // Step 3: Dispatch event delta downstream
+                if (!events.empty() && callback_)
+                    callback_(std::move(events));
+            } else {
+                std::this_thread::yield(); // Back-off briefly if /proc scan fails
             }
 
-            const auto& active_pids = *active_pids_res;
-            
-            active_set.clear();
-            active_set.insert(active_pids.begin(), active_pids.end());
-            events.clear();
-
-            // 1. Детекция завершенных процессов
-            for (auto it = cache.begin(); it != cache.end();) {
-                if (!active_set.contains(it->first)) {
-                    events.push_back({
-                        ProcessEventKind::Terminated,
-                        ProcessInfo{
-                            .pid = it->first, 
-                            .ppid = it->second.ppid, 
-                            .thread_count = it->second.thread_count,
-                            .name = std::move(it->second.name)
-                        }
-                    });
-                    it = cache.erase(it);
-                } else {
-                    ++it;
-                }
-            }
-
-            // 2. Опрос и обновление существующих
-            for (pid_t pid : active_pids) {
-                process_single_pid(pid, cache, events);
-            }
-
-            if (!events.empty() && callback_) {
-                callback_(std::move(events));
-            }
-
-            // Реактивное ожидание C++20: мгновенно просыпается при stop_requested()
+            // Sleep until the next interval or a stop request
             std::unique_lock lock(mutex_);
             cv_.wait_for(lock, st, interval_, [&st] { return st.stop_requested(); });
         }
     }
 
-    void ProcessMonitor::process_single_pid(pid_t pid, 
-                                            std::unordered_map<pid_t, CachedState>& cache, 
-                                            std::vector<ProcessEvent>& events) noexcept {
-        auto cache_it = cache.find(pid);
+    void ProcessMonitor::process_single_pid(
+        pid_t pid, std::unordered_map<pid_t, CachedState>& cache, 
+        std::vector<ProcessEvent>& events) noexcept {
         
-        if (cache_it == cache.end()) {
-            auto status_meta = ProcfsReader::fetch_status_meta(pid);
-            auto metrics_opt = ProcfsReader::fetch_metrics(pid);
+        auto metrics = ProcfsReader::fetch_metrics(pid);
+        if (!metrics) return; // Early exit on read failure
 
-            if (!status_meta || !metrics_opt) [[unlikely]] return;
-
-            cache.emplace(pid, CachedState{
-                .name = status_meta->name, 
-                .last_metrics = *metrics_opt,
-                .ppid = status_meta->ppid,
-                .thread_count = status_meta->thread_count
-            });
+        if (auto it = cache.find(pid); it != cache.end()) {
+            // Warm path: Process is already being tracked
+            auto& cached = it->second;
+            const auto& m = *metrics;
+            const auto& c = cached.last_metrics;
             
-            events.push_back({ProcessEventKind::Created, create_process_info(pid, *status_meta, *metrics_opt)});
-        } else {
-            auto metrics_opt = ProcfsReader::fetch_metrics(pid);
-            if (metrics_opt) [[likely]] {
-                auto& cached = cache_it->second;
+            // Trigger update only if memory structural boundaries shift
+            if (c.size != m.size || c.resident != m.resident || 
+                c.shared != m.shared || c.text != m.text || c.data != m.data) {
                 
-                // Оператор <=> автоматически сгенерирован компилятором для MemoryMetrics
-                if (cached.last_metrics.size != metrics_opt->size || 
-                    cached.last_metrics.resident != metrics_opt->resident ||
-                    cached.last_metrics.shared != metrics_opt->shared ||
-                    cached.last_metrics.text != metrics_opt->text ||
-                    cached.last_metrics.data != metrics_opt->data) {
-                    
-                    cached.last_metrics = *metrics_opt;
-                    
-                    ProcfsReader::StatusMeta meta{
-                        .name = cached.name, .ppid = cached.ppid, .thread_count = cached.thread_count
-                    };
-                    events.push_back({ProcessEventKind::Updated, create_process_info(pid, meta, *metrics_opt)});
-                }
+                cached.last_metrics = m;
+                ProcfsReader::StatusMeta meta{
+                    .name = cached.name, .ppid = cached.ppid, .thread_count = cached.thread_count
+                };
+
+                events.push_back({ProcessEventKind::Updated, create_process_info(pid, meta, m)});
             }
+        
+        } else if (auto meta = ProcfsReader::fetch_status_meta(pid)) {
+            // Cold path: Freshly discovered process
+            cache.emplace(pid, CachedState{meta->name, *metrics, meta->ppid, meta->thread_count});
+            events.push_back({ProcessEventKind::Created, create_process_info(pid, *meta, *metrics)});
         }
     }
 
-    ProcessInfo ProcessMonitor::create_process_info(pid_t pid, const ProcfsReader::StatusMeta& meta, const scrapers::StatmEntry& statm) const noexcept {
-        return ProcessInfo{
+    // Transform kernel types into standardized telemetry
+    ProcessInfo ProcessMonitor::create_process_info(
+        pid_t pid, const ProcfsReader::StatusMeta& meta, 
+        const scrapers::StatmEntry& statm) const noexcept {
+        
+        return {
             .pid = pid,
             .ppid = meta.ppid,
             .thread_count = meta.thread_count,
             .name = meta.name,
-            .memory = MemoryMetrics{
+            .memory = {
                 .vm_size_bytes  = statm.size.bytes(),
                 .rss_bytes      = statm.resident.bytes(),
                 .shared_bytes   = statm.shared.bytes(),
